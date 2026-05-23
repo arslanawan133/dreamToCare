@@ -1,0 +1,58 @@
+picture {
+    position: relative;
+}
+
+picture img {
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+    opacity: 1;
+}
+
+picture button {
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+    opacity: 0;
+    border: none;
+    display: none;
+}
+
+picture:hover img {
+    opacity: 0.5;
+    box-shadow: 0 5px 10px #f67e4a5b;
+}
+
+picture:hover button.edit {
+    color: #f67d4a;
+    cursor: pointer;
+    opacity: 1;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: rgba(0,0,0,0.65);
+    border-radius: 50%;
+}
+
+picture:hover button.close {
+    color: black;
+    cursor: pointer;
+    opacity: 1;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    top: 15px;
+    right: 15px;
+    outline: none;
+    position: absolute;
+    background-color: #f67d4a;
+    border-radius: 50%;
+}
