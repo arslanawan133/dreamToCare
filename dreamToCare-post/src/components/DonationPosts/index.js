@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Loader from '../loader';
 import placeholder from '../../images/placeholder.png';
+import { useEffect } from 'react';
+import {GetDonationPost} from "../../actions/postAction";
 
 const DonationPosts = () => {
   const { donationPost, isLoading, auth } = useSelector((state) => ({
@@ -12,8 +14,6 @@ const DonationPosts = () => {
   }));
   const [searchPost, setSearchPost] = useState('');
   const [category, setCategory] = useState('');
-
-  const donations = donationPost.filter((e) => e.creator._id !== auth.id);
 
   return (
     <div className='tp-donation-page-area section-padding'>
@@ -50,8 +50,8 @@ const DonationPosts = () => {
               <div className='features-area features-area-2'>
                 <div className='container-fluid'>
                   <div className='row'>
-                    {donations.length ? (
-                      donations
+                    {donationPost.length ? (
+                      donationPost
                         .filter((e) => e.title.toLowerCase().includes(searchPost.toLowerCase()))
                         .filter((e) => e.category.includes(category))
                         .map((e, i) => (
